@@ -195,7 +195,7 @@ public class Chat : MonoBehaviour {
     void HitEnter(string msg)
     {
         msg = msg.Replace("\n", "");
-        GetComponent<NetworkView>().RPC("ApplyGlobalChatText", RPCMode.All, playerName, msg);
+        GetComponent<NetworkView>().RPC("GlobalChatText", RPCMode.Server, playerName, msg);
         inputField = ""; //Clear line
         GUI.UnfocusWindow();//Deselect chat
         lastUnfocusTime = Time.time;
